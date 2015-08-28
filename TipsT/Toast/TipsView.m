@@ -53,7 +53,15 @@
 	[bgView addSubview:titleLabel];
 	
 	[self.tips addObject:bgView];
-	[viewController.view addSubview:bgView];
+	
+	if ( viewController.navigationController )
+	{
+		[viewController.navigationController.navigationBar addSubview:bgView];
+	}
+	else
+	{
+		[viewController.view addSubview:bgView];
+	}
 
 	// 显示出来
 	[UIView animateWithDuration:self.animationTime animations:^{
